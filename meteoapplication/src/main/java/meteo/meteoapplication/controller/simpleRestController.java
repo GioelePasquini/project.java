@@ -12,17 +12,26 @@ import meteo.meteoapplication.util.Util;
 
 import java.util.Vector;
 import org.json.JSONObject;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author Gioele Pasquini
+ * @author Umberto Maraglino
+ * 
+ * Classe che gestisce le richieste GET e POST dell'utente
+ *
+ */
 
 @RestController
 public class simpleRestController {
    
+/**
+ * Variabili utilizzate in più metodi del controller
+ */
     Vector<JSONObject> obj=new Vector<JSONObject>();
     Util u=new Util();
     Temperatura t;
@@ -34,6 +43,15 @@ public class simpleRestController {
 	HistoricalService h=new HistoricalService();
 	Vector<String> v=new Vector<String>();
     
+	
+	/**
+	 * Metodo GET che restituisce le temperature massime, minime, reali e percepite di una o più città inserite dall'utente
+	 * 
+	 * @param names
+	 * 
+	 * @return array di temperature
+	 * 
+	 */
     @GetMapping ("/temp/{names}")
     public Vector<Temperatura> getinfo(@PathVariable String names) throws CityException {
     	String[] splitted=names.split(",");
@@ -46,15 +64,37 @@ public class simpleRestController {
     	return vtemp;
     } 
     
-    @RequestMapping("/save/{name}/{num_iter}")
+    /**
+     * Metodo GET che salva ora per ora le informazioni relative alla temperatura di una città
+     * 
+     * @param name
+     * @param num_iter
+     * 
+     * @return Vector di temperature
+     * 
+     */
+    
+    @GetMapping("/save/{name}/{num_iter}")
     public Vector<Temperatura> oraperora(@PathVariable String name,
                                          @PathVariable int num_iter) { 
         vtemp=u.usetimer(name, num_iter);
         return vtemp;
     }
      
+    /**
+     * Metodo POST che filtra le statistiche in base a città, primo giorno, ultimo giorno e tipo di statistica (media, varianza o entrambe)
+     * 
+     * @param param contiene i filtri
+     * 
+     * @return Vector di Object che contiene le statistiche filtrate
+     * 
+     * @throws CityException
+     * @throws DatasetException
+     * @throws TypeException
+     * 
+     */
     
-	@GetMapping ("/stats")
+	@PostMapping ("/stats")
 	public Vector<Object>  stats (@RequestBody Filtro param) throws CityException, DatasetException, TypeException  {
     	Vector<Object> vecret=new Vector<Object>();
     	vecret.clear();
@@ -68,7 +108,24 @@ public class simpleRestController {
 		
 	}
 	
-	@GetMapping ("limit/{type_temp}/{type_rel}/{limit}")
+	/**
+	 * Metodo POST che restituisce le città e i giorni presenti nello storico con un tipo di temperatura (massima, minima, reale o percepita) 
+	 * maggiore o minore di un valore scelto dall'utente.
+	 * 
+	 * @param param contiene i filtri
+	 * @param type_temp tipo di temperatura da visualizzare 
+	 * @param type_rel tipo di relazione (maggiore o minore)
+	 * @param limit limite numerico 
+	 * 
+	 * @return Vector di stringhe contenenti i giorni e le città filtrate
+	 * 
+	 * @throws CityException
+	 * @throws DatasetException
+	 * @throws TypeException
+	 * 
+	 */
+	
+	@PostMapping ("limit/{type_temp}/{type_rel}/{limit}")
 	public Vector<String> limit (@RequestBody Filtro param,
 			                     @PathVariable String type_temp,
 			                     @PathVariable String type_rel,
@@ -79,8 +136,23 @@ public class simpleRestController {
 		return v;
 	}
 	
+	/**
+	 * Metodo POST che restituisce le città e i giorni presenti nello storico che hanno un tipo di temperatura compreso tra due valori passati 
+	 * dall'utente
+	 * 
+	 * @param param contiene i filtri 
+	 * @param type_temp tipo di temperatura da visualizzare 
+	 * @param limitinf limite numerico inferiore 
+	 * @param limitsup limite numerico superiore
+	 * 
+	 * @return Vector di stringhe contenenti i giorni e le città filtrate
+	 * 
+	 * @throws CityException
+	 * @throws DatasetException
+	 * 
+	 */
 	
-	@GetMapping ("/rangingfrom/{type_temp}/{limitinf}/{limitsup}")
+	@PostMapping ("/rangingfrom/{type_temp}/{limitinf}/{limitsup}")
 	public Vector<String> rangingfrom (@RequestBody Filtro param,
 			                     @PathVariable String type_temp,
 			                     @PathVariable double limitinf,
@@ -89,6 +161,31 @@ public class simpleRestController {
 		String[] splitted= param.getCitta().split(",");
 		v=f.Filtred_by_limits(splitted, limitinf, limitsup, param, type_temp);
 		return v;
+	}
+	
+	/**
+	 * Metodo POST che restituisce statistiche (media, varianza o entrambe) periodiche (giornaliere, settimanali o di range personalizzabile) 
+	 * di una o più città presenti nello storico.
+	 * 
+	 * @param param coentiene i filtri
+	 * 
+	 * @return Vector di Object contenente le informazioni filtrate
+	 * 
+	 * @throws TypeException
+	 * @throws DatasetException
+	 * 
+	 */
+
+	@PostMapping ("/periodically")
+	public Vector<Object> periodically  (@RequestBody Filtro param) throws TypeException, DatasetException {
+		Vector <Object> v=new Vector <Object>();
+		String[] splitted=param.getCitta().split(",");
+    	for (int i=0; i< splitted.length;i++) {
+		o=f.Filtred_by_range(splitted[i], param, h.ReadFrom(splitted[i], "01-12-2020", "15-12-2020"));
+		v.add(o);
+		}
+    	return v;
+    	
 	}
 		
 }
