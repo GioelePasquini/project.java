@@ -1,7 +1,5 @@
 package meteo.meteoapplication.service;
 
- 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,19 +7,27 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Vector;
 
- 
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import meteo.meteoapplication.exceptions.CityException;
 
- 
 
+/**
+ * 
+ * @author Gioele Pasquini
+ * @author Umberto Maraglino
+ *
+ *Classe che estende la classe astratta Service
+ *Legge le informazioni attuali sulla temperatura collegandosi all'API di openweather
+ *
+ */
 public class CurrentService extends Service {
 
- 
-
+	/**
+	 * Override del metodo ReadFrom
+	 * Carica un Vector con le informazioni relative alla temperatura lette dall'API
+	 */
     @Override
     public Vector<JSONObject> ReadFrom(String citta, String firstday, String lastday) throws CityException {
         {
@@ -42,7 +48,7 @@ public class CurrentService extends Service {
                  obj= new JSONObject(zero);
             }
             catch(IOException | JSONException e ) {
-               e.printStackTrace();
+              e.printStackTrace();
             }
            
             if (zero.isBlank())
