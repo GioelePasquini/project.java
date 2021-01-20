@@ -10,8 +10,21 @@ import org.json.JSONObject;
 
 import meteo.meteoapplication.exceptions.DatasetException;
 
+/**
+ * 
+ * @author Gioele Pasquini
+ * @author Umberto Maraglino
+ * 
+ * Classe che estende la classe astratta Service
+ * Legge le informazioni sulla temperatura contenute nel dataset
+ *
+ */
 public class HistoricalService extends Service {
 
+	/**
+	 * Override del metodo ReadFrom
+	 * Carica un Vector con le informazioni relative alla temperatura lette dal dataset
+	 */
 	@Override
 	public Vector<JSONObject> ReadFrom(String citta, String firstday, String lastday) throws DatasetException {
 		
@@ -80,7 +93,3 @@ public class HistoricalService extends Service {
      }
 
 }
-	
-		
-
-
