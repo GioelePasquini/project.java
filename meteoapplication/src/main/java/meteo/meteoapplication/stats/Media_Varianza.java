@@ -42,12 +42,12 @@ public class Media_Varianza  {
 	
 	/**
 	 * costruttore
-	 * @param nome
-	 * @param mediatemp
-	 * @param mediatemp_max
-	 * @param mediatemp_min
-	 * @param mediafeels_like
-	 * @param vartemp
+	 * @param nome nome città
+	 * @param mediatemp media temperatura reale
+	 * @param mediatemp_max media temperatura massima
+	 * @param mediatemp_min media temperatura minima
+	 * @param mediafeels_like media temperatura percepita
+	 * @param vartemp varianza temperatura 
 	 */
 	public Media_Varianza(String nome, double mediatemp, double mediatemp_max, double mediatemp_min,
 			double mediafeels_like, double vartemp) {
@@ -77,7 +77,7 @@ public class Media_Varianza  {
 	
 	/**
 	 * Setter mediatemp
-	 * @param mediatemp
+	 * @param mediatemp media temperatura
 	 */
 	public void setMediatemp(double mediatemp) {
 		this.mediatemp = mediatemp;
@@ -93,7 +93,7 @@ public class Media_Varianza  {
 	
 	/**
 	 * Setter media_tempmax
-	 * @param mediatemp_max
+	 * @param mediatemp_max media temperatura massima
 	 */
 	public void setMediatemp_max(double mediatemp_max) {
 		this.mediatemp_max = mediatemp_max;
@@ -109,7 +109,7 @@ public class Media_Varianza  {
 	
 	/**
 	 * Setter mediatemp_min
-	 * @param mediatemp_min
+	 * @param mediatemp_min media temperatura minima
 	 */
 	public void setMediatemp_min(double mediatemp_min) {
 		this.mediatemp_min = mediatemp_min;
@@ -125,7 +125,7 @@ public class Media_Varianza  {
 	
 	/**
 	 * Setter mediafeels_like
-	 * @param mediafeels_like
+	 * @param mediafeels_like media temperatura percepita
 	 */
 	public void setMediafeels_like(double mediafeels_like) {
 		this.mediafeels_like = mediafeels_like;
@@ -141,7 +141,7 @@ public class Media_Varianza  {
 	
 	/**
 	 * Setter vartemp
-	 * @param vartemp
+	 * @param vartemp varianza temperatura
 	 */
 	public void setVartemp(double vartemp) {
 		this.vartemp = vartemp;
@@ -157,7 +157,7 @@ public class Media_Varianza  {
 	
 	/**
 	 * Setter nome
-	 * @param nome
+	 * @param nome nome citta
 	 */
 	public void setNome(String nome) {
 		this.nome = nome;

@@ -13,7 +13,7 @@ public interface Statistiche {
 	
 	/**
 	 * Metodo che prende in ingreso una Media_varianza e restituisce un Object con la statistica
-	 * @param st Media_Varianza
+	 * @param st Media_Varianza oggetto media_varianza generico
 	 * @return Object 
 	 */
 	public Object stampastats(Media_Varianza st);

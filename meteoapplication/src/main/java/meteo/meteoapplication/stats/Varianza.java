@@ -24,8 +24,8 @@ public class Varianza implements Statistiche {
     /**
      * costruttore
      * 
-     * @param nome
-     * @param vartemp
+     * @param nome citta
+     * @param vartemp varianza temperature 
      */
     public Varianza(String nome, double vartemp) {
         this.nome=nome;
@@ -51,7 +51,7 @@ public class Varianza implements Statistiche {
     
     /**
      * Getter nome
-     * @return
+     * @return nome
      */
     public String getNome() {
 		return nome;
@@ -59,7 +59,7 @@ public class Varianza implements Statistiche {
     
     /**
      * Setter nome
-     * @param nome
+     * @param nome citta
      */
 	public void setNome(String nome) {
 		this.nome = nome;
@@ -75,7 +75,7 @@ public class Varianza implements Statistiche {
     
     /**
      * Setter vartemp
-     * @param vartemp
+     * @param vartemp varianza temperature
      */
     public void setVartemp(double vartemp) {
         this.vartemp = vartemp;
