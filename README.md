@@ -1,6 +1,6 @@
 ## MeteoApplication 
 MeteoApplication è il frutto del lavoro svolto per l'appello di Programmazione ad oggetti di gennaio 2020/2021.
-Usufruendo dei dati ricavati dall'API di Openweather, l'applicazione restituisce informazioni attuali e genera statistiche periodiche relative alle temperature  di diverse città.
+Usufruendo dei dati ricavati dall'API Openweather, l'applicazione restituisce informazioni attuali e genera statistiche periodiche relative alle temperature  di diverse città.
 ## Autori 
 * Gioele Pasquini 50%
 * Umberto Maraglino 50%
@@ -13,10 +13,10 @@ Usufruendo dei dati ricavati dall'API di Openweather, l'applicazione restituisce
 2) Importare la cartella sull'IDE;
 3) Aggiungere nella sezione "Build Path" l'external jar "java-json.jar" (scaricabile dal seguente [link](http://www.java2s.com/Code/Jar/j/Downloadjavajsonjar.htm));
 4) Avviare l'applicazione come SpringBootApplication;
-5) Inserire la rotta su Postman.
+5) Inserire una delle rotte su Postman.
 ## UML
 ![UML](https://github.com/GioelePasquini/project.java/blob/main/IMG/UML%20base.png)
-Questo UML rappresenta il funzionamento della nostra applicazione.
+Questo diagramma rappresenta il funzionamento della nostra applicazione.
 L'utente può:
 1) Visualizzare le informazioni attuali sulla temperatura grazie all'API OpenWeather;
 2) Visualizzare statistiche sulla temperature di informazioni presenti nello storico;
@@ -27,7 +27,7 @@ L'utente può:
 **N.B** Lo storico presenta i dati delle città "Rome" e "London" per un periodo che va dal 01-12-2020 al 15-12-2020.
 
 ## Rotte
-La comunicazione tra utente ed appliczione avviene tramite l'utilizzo di rotte predefinite.
+La comunicazione tra utente ed applicazione avviene tramite l'utilizzo di rotte predefinite.
 Di seguito sono riportate delle tabelle riassuntive con degli esempi.
 
 
@@ -39,7 +39,7 @@ GET | localhost:8080/temp/{names} |;
 
 La seguente rotta restituisce all'utente le informazioni attuali relative alla temperatura di una o più città.
 
-**N.B.** {names} può contenere uno o più nomi. Nel caso contenga più nomi, questi devono essere divisi da ","
+**N.B.** {names} può contenere uno o più nomi. Nel caso contenga più nomi, questi devono essere divisi da ",".
 
 Esempio rotta: 
 
@@ -56,22 +56,20 @@ Tipo | Path |
 ---- | ---- | 
 POST | localhost:8080/stats |;
 
-Fornisce all'utente statistiche riguardanti:
+Fornisce all'utente statistiche (relative alle città scelte) riguardanti:
 
 * temperatura media;
 * varianza tra temperatura reale e percepita;
 * entrambe.
 
-relative alle città scelte.
-
-La rotta richiede un Request body con il seguente formato:
+La rotta richiede un Body con il seguente formato:
 
 ![body_stats](https://github.com/GioelePasquini/project.java/blob/main/IMG/stats_body.PNG)
 
 L'utente dovrà sostituire 
-* "citta" con il nome delle città (**N.B.** le città devono essere separate da virgole senza spazi); 
-* "first_day" con il giorno da cui si vuole la statistica;
-* "last_day" con il giorno fino a cui si vuole la statistica;
+* "citta" con il nome delle città presenti nello storico (**N.B.** le città devono essere separate da virgole senza spazi); 
+* "first_day" con il giorno da cui si vuole la statistica (**N.B** stringa formato (gg-mm-aaaa));
+* "last_day" con il giorno fino a cui si vuole la statistica (**N.B** stringa formato (gg-mm-aaaa));
 * "type_stat" con il tipo di statistica che si vuole visualizzare (**N.B** inserire "*Media*", "*Varianza*" o "*All*").
 
 
@@ -82,7 +80,7 @@ POST | localhost:8080/limit/{type_temp}/{type_rel}/{limit} |;
 
 Fornisce i giorni in cui il tipo di temperatura è maggiore o minore del limite, relativi alle città scelte.
 
-La rotta richiede un Request body con il seguente formato:
+La rotta richiede un Body con il seguente formato:
 
 ![body_limit](https://github.com/GioelePasquini/project.java/blob/main/IMG/limit_body.PNG)
 
@@ -92,8 +90,8 @@ L'utente dovrà sostituire
 * {type_rel} con ""*maggiore*" o "*minore*";
 * {limit} con il limite numerico;
 * "citta" con il nome delle città (**N.B.** le città devono essere separate da virgole senza spazi); 
-* "first_day" con il giorno da cui si vuole verificare;
-* "last_day" con il giorno fino a cui si vuole verificare.
+* "first_day" con il giorno da cui si vuole verificare (**N.B** stringa formato (gg-mm-aaaa));
+* "last_day" con il giorno fino a cui si vuole verificare (**N.B** stringa formato (gg-mm-aaaa)).
 
 Esempio rotta: 
 
@@ -112,7 +110,7 @@ POST | localhost:8080/rangingfrom/{type_temp}/{limitinf}/{limitsup} |;
 
 Fornisce i giorni in cui il tipo di temperatura è compreso tra il limite inf e il limite sup, relativi alle città scelte.
 
-La rotta richiede un Request body con il seguente formato:
+La rotta richiede un Body con il seguente formato:
 
 ![body_rf](https://github.com/GioelePasquini/project.java/blob/main/IMG/rangingfrom_body.PNG)
 
@@ -122,8 +120,8 @@ L'utente dovrà sostituire
 * {limitinf} con il limite numerico inferiore;
 * {limitsup} con il limite numerico superiore;
 * "citta" con il nome delle città (**N.B.** le città devono essere separate da virgole senza spazi); 
-* "first_day" con il giorno da cui si vuole verificare;
-* "last_day" con il giorno fino a cui si vuole verificare.
+* "first_day" con il giorno da cui si vuole verificare  (**N.B** stringa formato (gg-mm-aaaa));
+* "last_day" con il giorno fino a cui si vuole verificare (**N.B** stringa formato (gg-mm-aaaa)).
 
 Esempio rotta: 
 
@@ -141,7 +139,7 @@ POST | localhost:8080/periodically|;
 
 Fornisce statistiche periodiche.
 
-La rotta richiede un Request body con il seguente formato:
+La rotta richiede un Body con il seguente formato:
 
 ![body_periodically](https://github.com/GioelePasquini/project.java/blob/main/IMG/weekly_body.PNG)
 
@@ -175,7 +173,7 @@ Tipo | Path |
 ---- | ---- | 
 GET | localhost:8080/save/{name}/{num_iter}|;
 
-Rotta che salva in un vector le informazioni riguardanti la temperatura di una città ogni ora per un numero di volte scelto dall'utente.
+Rotta che salva in un vector le informazioni riguardanti la temperatura di una città, ogni ora per un numero di volte scelto dall'utente.
 
 L'utente dovrà sostituire 
 
