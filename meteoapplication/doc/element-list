@@ -1,0 +1,8 @@
+meteo.meteoapplication
+meteo.meteoapplication.controller
+meteo.meteoapplication.exceptions
+meteo.meteoapplication.filter
+meteo.meteoapplication.model
+meteo.meteoapplication.service
+meteo.meteoapplication.stats
+meteo.meteoapplication.util
