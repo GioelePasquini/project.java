@@ -41,13 +41,13 @@ public class Filtraggio {
 	 * Metodo che filtra in base al tipo di statistica e alla città
 	 * 
 	 * @param stat tipo di statistica (media, varianza o entrambe)
-	 * @param citta
+	 * @param citta nome della citta
 	 * @param obj Vector contenente tutte le info raccolte nello storico
 	 * 
 	 * @return Object contenente la statistica filtrata
 	 * 
-	 * @throws TypeException
-	 * 
+     * @throws TypeException gestisce l'eccezione riguardante il tipo
+     * 
 	 */
 	public Object Filtered_by_stat (String stat, String citta, Vector<JSONObject> obj) throws TypeException {
 		
@@ -88,8 +88,8 @@ public class Filtraggio {
 	 * 
 	 * @return Vector contenente le informazioni filtrate 
 	 * 
-	 * @throws TypeException
-	 * @throws DatasetException
+     * @throws DatasetException gestisce l'eccezione riguardante il dataset
+     * @throws TypeException gestisce l'eccezione riguardante il tipo
 	 * 
 	 */
 	
@@ -133,14 +133,14 @@ public class Filtraggio {
 	 * Metodo che filtra in base ai limiti superiore e inferiore passati dall'utente
 	 * 
 	 * @param splitted array che contiene le città
-	 * @param limiteinf 
-	 * @param limitesup
+	 * @param limiteinf limite inferiore
+	 * @param limitesup limite superiore
 	 * @param param contiene i filtri
-	 * @param type_temp temperatura da visualizzare
+	 * @param type_temp tipo di temperatura da visualizzare
 	 * 
 	 * @return Vector di stringhe contenenti i giorni e le città filtrate
 	 * 
-	 * @throws DatasetExceptionù
+     * @throws DatasetException gestisce l'eccezione riguardante il dataset
 	 * 
 	 */
 	
@@ -169,14 +169,14 @@ public class Filtraggio {
 	/**
 	 * Metodo che riempie un Vector con Object contenenti le statistiche filtrate (in base alla città e al tipo di statistica)
 	 * 
-	 * @param dati Vector contenente le info dallo storico
-	 * @param n giorni periodicità
+	 * @param dati Vector contenente le info provenienti dallo storico
+	 * @param n numero di giorni da cui è composta la periodicità
 	 * @param param contiene i filtri
-	 * @param citta 
+	 * @param citta contiene le citta
 	 * 
 	 * @return Vector di object contenente le statistiche filtrate
 	 * 
-	 * @throws TypeException
+     * @throws TypeException gestisce l'eccezione riguardante il tipo
 	 * 
 	 */
 	
@@ -202,14 +202,14 @@ public class Filtraggio {
 	 /**
 	  * Metodo che utilizza fill_vector assegnando la periodicità in funzione della scelta dell'utente
 	  * 
-	  * @param citta
+	  * @param citta contiene le citta
 	  * @param param contiene i filtri
 	  * @param ingresso Vector filtrato da fill_vector
 	  * 
 	  * @return Vector di Object contenente le informazioni filtrate in base alla periodicità
 	  * 
-	  * @throws TypeException
-	  * @throws DatasetException
+     * @throws DatasetException gestisce l'eccezione riguardante il dataset
+     * @throws TypeException gestisce l'eccezione riguardante il tipo
 	  * 
 	  */
 	

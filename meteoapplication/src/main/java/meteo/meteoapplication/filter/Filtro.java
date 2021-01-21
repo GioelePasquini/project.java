@@ -45,10 +45,10 @@ public class Filtro {
 	/**
 	 * Costruttore 
 	 * 
-	 * @param citta 
-	 * @param type_stat
-	 * @param first_day
-	 * @param last_day
+	 * @param citta contiene il nome della città
+	 * @param type_stat contiene il tipo di statistica
+	 * @param first_day contiene il primo giorno in stringa
+	 * @param last_day contiene l'ultimo giorno in stringa
 	 * 
 	 */
 	
@@ -70,7 +70,7 @@ public class Filtro {
 	
 	/**
 	 * Setter citta
-	 * @param citta
+	 * @param citta citta
 	 */
 	public void setCitta(String citta) {
 		this.citta = citta;
@@ -86,7 +86,7 @@ public class Filtro {
 	
 	/**
 	 * Setter type_stat
-	 * @param type_stat
+	 * @param type_stat tipo di statistica
 	 */
 	public void setType_stat(String type_stat) {
 		this.type_stat = type_stat;
@@ -102,7 +102,7 @@ public class Filtro {
 
 	/**
 	 * Setter first_day
-	 * @param first_day
+	 * @param first_day primo giorno
 	 */
 	public void setFirst_day(String first_day) {
 		this.first_day = first_day;
@@ -118,7 +118,7 @@ public class Filtro {
 
 	/**
 	 * Setter last_day
-	 * @param last_day
+	 * @param last_day ultimo giorno
 	 */
 	public void setLast_day(String last_day) {
 		this.last_day = last_day;
@@ -134,7 +134,7 @@ public class Filtro {
 
 	/**
 	 * Setter range
-	 * @param range
+	 * @param range (giornaliero/settimanale/personalizzabile)
 	 */
 	public void setRange(String range) {
 		this.range = range;
@@ -150,7 +150,7 @@ public class Filtro {
 
 	/**
 	 * Setter num_gg
-	 * @param num_gg
+	 * @param num_gg numero di giorni del range
 	 */
 	public void setNum_gg(int num_gg) {
 		this.num_gg = num_gg;
@@ -158,17 +158,3 @@ public class Filtro {
 
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
