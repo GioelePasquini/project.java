@@ -170,8 +170,21 @@ Risposta:
 
 ![risposta_custom](https://github.com/GioelePasquini/project.java/blob/main/IMG/custom_risposta.PNG)
 
+6)
+Tipo | Path | 
+---- | ---- | 
+GET | localhost:8080/save/{name}/{num_iter}|;
+
+Rotta che salva in un vector le informazioni riguardanti la temperatura di una città ogni ora per un numero di volte scelto dall'utente.
+
+L'utente dovrà sostituire 
+
+* {name} con il nome di una città da monitorare;
+* {num_iter} con il numero di ore per cui il programma monitora.
 
 ## Diagrammi delle classi
+
+Di seguito sono riportati i diagrammi delle classi:
 
 * Package meteo.meteoapplication
 
@@ -206,14 +219,30 @@ Risposta:
 ![util](https://github.com/GioelePasquini/project.java/blob/main/IMG/package%20util.png)
 
 
+## Diagrammi delle sequenze
 
+Di seguito sono riportati i diagrammi delle sequenze:
 
+* /temp/{names}
 
+![tempnames](https://github.com/GioelePasquini/project.java/blob/main/IMG/rotta%20temp.png)
 
+* /save/{name}/{num_iter}
 
+![save](https://github.com/GioelePasquini/project.java/blob/main/IMG/rotta%20save.png)
 
+* /stats
 
+![stats](https://github.com/GioelePasquini/project.java/blob/main/IMG/rotta%20stats.png)
 
+* /limit/{type_temp}/{type_rel}/{limit}
 
+![limit](https://github.com/GioelePasquini/project.java/blob/main/IMG/rotta%20limit.png)
 
+* /rangingfrom/{type_temp}/{limitinf}/{limitsup}
 
+![rf](https://github.com/GioelePasquini/project.java/blob/main/IMG/rotta%20rangingfrom.png)
+
+* /periodically
+
+![periodic](https://github.com/GioelePasquini/project.java/blob/main/IMG/rotta%20periodically.png)
