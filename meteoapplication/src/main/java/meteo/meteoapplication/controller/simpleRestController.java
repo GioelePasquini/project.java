@@ -47,10 +47,11 @@ public class simpleRestController {
 	/**
 	 * Metodo GET che restituisce le temperature massime, minime, reali e percepite di una o più città inserite dall'utente
 	 * 
-	 * @param names
+	 * @param names contiene i nomi delle città
 	 * 
 	 * @return array di temperature
 	 * 
+	 * @throws CityException gestisce l'eccezione riguardante la citta
 	 */
     @GetMapping ("/temp/{names}")
     public Vector<Temperatura> getinfo(@PathVariable String names) throws CityException {
@@ -65,10 +66,10 @@ public class simpleRestController {
     } 
     
     /**
-     * Metodo GET che salva ora per ora le informazioni relative alla temperatura di una città
+     * Metodo GET che salva ora per ora le informazioni relative alla temperatura di una città tante volte quante vuole l'utente
      * 
-     * @param name
-     * @param num_iter
+     * @param name contiene il nome della città
+     * @param num_iter è il numero di iterazioni 
      * 
      * @return Vector di temperature
      * 
@@ -88,9 +89,9 @@ public class simpleRestController {
      * 
      * @return Vector di Object che contiene le statistiche filtrate
      * 
-     * @throws CityException
-     * @throws DatasetException
-     * @throws TypeException
+     * @throws CityException gestisce l'eccezione riguardante la citta
+     * @throws DatasetException gestisce l'eccezione riguardante il dataset
+     * @throws TypeException gestisce l'eccezione riguardante il tipo
      * 
      */
     
@@ -119,13 +120,13 @@ public class simpleRestController {
 	 * 
 	 * @return Vector di stringhe contenenti i giorni e le città filtrate
 	 * 
-	 * @throws CityException
-	 * @throws DatasetException
-	 * @throws TypeException
+	 * @throws CityException gestisce l'eccezione riguardante la citta
+     * @throws DatasetException gestisce l'eccezione riguardante il dataset
+     * @throws TypeException gestisce l'eccezione riguardante il tipo
 	 * 
 	 */
 	
-	@PostMapping ("limit/{type_temp}/{type_rel}/{limit}")
+	@PostMapping ("/limit/{type_temp}/{type_rel}/{limit}")
 	public Vector<String> limit (@RequestBody Filtro param,
 			                     @PathVariable String type_temp,
 			                     @PathVariable String type_rel,
@@ -147,8 +148,8 @@ public class simpleRestController {
 	 * 
 	 * @return Vector di stringhe contenenti i giorni e le città filtrate
 	 * 
-	 * @throws CityException
-	 * @throws DatasetException
+	 * @throws CityException gestisce l'eccezione riguardante la citta
+     * @throws DatasetException gestisce l'eccezione riguardante il dataset
 	 * 
 	 */
 	
@@ -171,8 +172,8 @@ public class simpleRestController {
 	 * 
 	 * @return Vector di Object contenente le informazioni filtrate
 	 * 
-	 * @throws TypeException
-	 * @throws DatasetException
+     * @throws DatasetException gestisce l'eccezione riguardante il dataset
+     * @throws TypeException gestisce l'eccezione riguardante il tipo
 	 * 
 	 */
 
