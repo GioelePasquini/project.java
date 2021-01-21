@@ -1,7 +1,5 @@
 package meteo.meteoapplication.exceptions;
 
- 
-
 /**
  * 
  * @author Gioele Pasquini
@@ -11,22 +9,23 @@ package meteo.meteoapplication.exceptions;
  *
  */
 
- 
-
 public class TypeException extends Exception {
-    
-    private static final long serialVersionUID = 1L;
+	
+	private static final long serialVersionUID = 1L;
 
- 
-
-    public TypeException () {
-        super();
-    }
-    
-    public TypeException (String msg) {
-        super(msg);
-    }
-
- 
+	/**
+	 * costruttore
+	 */
+	public TypeException () {
+		super();
+	}
+	
+	/**
+	 * 
+	 * @param msg messaggio d'errore
+	 */
+	public TypeException (String msg) {
+		super(msg);
+	}
 
 }
