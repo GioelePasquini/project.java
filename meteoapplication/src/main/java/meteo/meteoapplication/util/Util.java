@@ -31,16 +31,15 @@ public class Util {
     CurrentService s= new CurrentService ();
     Vector<JSONObject> obj=new Vector<JSONObject>();
     private int counter=1;
-   //FORSE CANC Vector<Temperatura> v= new Vector<Temperatura>();
-    
+   
     /**
      * metodo che prende in ingresso il nome di una città e il numero di iterazioni e salva le informazioni lette dall'api ogni ora per n volte
      * e salva le informazioni
      * 
-     * @param City
-     * @param num_iter
+     * @param City citta
+     * @param num_iter numero di volte che si vuole salvare il dato
      * 
-     * @return Vector<Temperatura> contenente tutte le temperature lette 
+     * @return Vector di Temperatura contenente tutte le temperature lette 
      */
     public  Vector<Temperatura> usetimer (String City, int num_iter) {
     Vector<Temperatura> v= new Vector<Temperatura>();
@@ -67,12 +66,12 @@ public class Util {
     
    /**
     * metodo che prende in ingresso il JSONObject letto dall'api contenente il giorno corrente in formato unix, lo converte in formato
-    * anno-mese-giorno e restituisce una stringa
+    * anno.mese.giorno e restituisce una stringa
     * 
-    * @param obj
-    * @return String 
+    * @param obj dati disponibili
+    * @return String data
     * 
-    * @throws JSONException
+    * @throws JSONException gestisce l'eccezione
     * 
     */
    public String today (JSONObject obj) throws JSONException {
@@ -88,8 +87,8 @@ public class Util {
     * metodo che prende in ingresso un Vector e una stringa contenente il nome della città e restituisce un oggetto Media_Varianza
     * contenente le statistiche 
     * 
-    * @param v
-    * @param nome
+    * @param v vector di jsonobject contenente dati utili
+    * @param nome citta
     * 
     * @return Media_Varianza
     */
