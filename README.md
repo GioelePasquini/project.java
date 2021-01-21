@@ -28,7 +28,7 @@ L'utente può:
 
 ## Rotte
 La comunicazione tra utente ed appliczione avviene tramite l'utilizzo di rotte predefinite.
-Di seguito è riportata una tabella riassuntiva.
+Di seguito sono riportate delle tabelle riassuntive con degli esempi.
 
 
 
@@ -158,7 +158,61 @@ Esempio rotta:
 
 Risposta applicando il filtro mostrato precedentemente:
 
-![risposta_peiodically](https://github.com/GioelePasquini/project.java/blob/main/IMG/weekly_risposta.PNG)
+![risposta_periodically](https://github.com/GioelePasquini/project.java/blob/main/IMG/weekly_risposta.PNG)
+
+Esempio di rotta con "*Custom*" :
+
+Body inserito:
+
+![body_custom](https://github.com/GioelePasquini/project.java/blob/main/IMG/custom_body.PNG)
+
+Risposta:
+
+![risposta_custom](https://github.com/GioelePasquini/project.java/blob/main/IMG/custom_risposta.PNG)
+
+
+## Diagrammi delle classi
+
+* Package meteo.meteoapplication
+
+![main](https://github.com/GioelePasquini/project.java/blob/main/IMG/package%20nmain.png)
+
+* Package meteo.meteoapplication.controller
+
+![controller](https://github.com/GioelePasquini/project.java/blob/main/IMG/package%20controller.png)
+
+* Package meteo.meteoapplication.exceptions
+
+![exc](https://github.com/GioelePasquini/project.java/blob/main/IMG/package%20nexception.png)
+
+* Package meteo.meteoapplication.filter
+
+![filter](https://github.com/GioelePasquini/project.java/blob/main/IMG/package%20filter.png)
+
+* Package meteo.meteoapplication.model
+
+![model](https://github.com/GioelePasquini/project.java/blob/main/IMG/package%20model.png)
+
+* Package meteo.meteoapplication.service 
+
+![service](https://github.com/GioelePasquini/project.java/blob/main/IMG/package%20service.png)
+
+* Package meteo.meteoapplication.stats
+
+![stats](https://github.com/GioelePasquini/project.java/blob/main/IMG/package%20stats.png)
+
+* Package meteo.meteoapplication.util
+
+![util](https://github.com/GioelePasquini/project.java/blob/main/IMG/package%20util.png)
+
+
+
+
+
+
+
+
+
 
 
 
