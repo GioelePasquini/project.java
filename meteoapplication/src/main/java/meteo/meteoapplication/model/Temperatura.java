@@ -49,12 +49,12 @@ public class Temperatura {
 	/**
 	 * Costruttore
 	 * 
-	 * @param nome
-	 * @param temp_min
-	 * @param temp_max
-	 * @param feel_like
-	 * @param temp
-	 * @param giorno
+	 * @param nome  nome della città
+	 * @param temp_min tempratura minima
+	 * @param temp_max temperatura massima
+	 * @param feel_like temperatura percepita
+	 * @param temp temperatura reale
+	 * @param giorno stringa contenente il giorno
 	 * 
 	 */
 	public Temperatura(String nome, double temp_min, double temp_max, double feel_like, double temp, String giorno) {
@@ -77,7 +77,7 @@ public class Temperatura {
 
 	/**
 	 * Setter temp_min
-	 * @param temp_min
+	 * @param temp_min temperatura minima
 	 */
 	public void setTemp_min(double temp_min) {
 		this.temp_min = temp_min;
@@ -93,7 +93,7 @@ public class Temperatura {
 	
 	/**
 	 * Setter temp_max
-	 * @param temp_max
+	 * @param temp_max temperatura massima
 	 */
 	public void setTemp_max(double temp_max) {
 		this.temp_max = temp_max;
@@ -109,7 +109,7 @@ public class Temperatura {
 	
 	/**
 	 * Setter feel_like
-	 * @param feel_like
+	 * @param feel_like temperatura percepita
 	 */
 	public void setFeel_like(double feel_like) {
 		this.feel_like = feel_like;
@@ -125,7 +125,7 @@ public class Temperatura {
 	
 	/**
 	 * Setter temp
-	 * @param temp
+	 * @param temp temperatura reale
 	 */
 	public void setTemp(double temp) {
 		this.temp = temp;
@@ -141,7 +141,7 @@ public class Temperatura {
 	
 	/**
 	 * Setter nome
-	 * @param nome
+	 * @param nome citta
 	 */
 	public void setNome(String nome) {
 		this.nome = nome;
@@ -157,7 +157,7 @@ public class Temperatura {
 
 	/**
 	 * Setter giorno
-	 * @param giorno
+	 * @param giorno giorno corrente
 	 */
 	public void setGiorno(String giorno) {
 		this.giorno = giorno;
