@@ -13,28 +13,28 @@ import org.json.JSONObject;
  * @author Gioele Pasquini
  * @author Umberto Maraglino
  *
- *Classe astratta 
+ *Classe astratta estesa in seguito per leggere i dati
  *
  */
 public abstract class Service {
 	
 	/**
 	 * Metodo astratto
-	 * @param citta
-	 * @param firstday
-	 * @param lastday
+	 * @param citta nome della città
+	 * @param firstday primo giorno
+	 * @param lastday ultimo giorno
 	 * 
-	 * @return Vector<JSONObject> contenente le informazioni
+	 * @return Vector JSONObject contenente le informazioni
 	 * 
-	 * @throws CityException
-	 * @throws DatasetException
+	 * @throws CityException gestisce l'eccezione riguardante la citta
+     * @throws DatasetException gestisce l'eccezione riguardante il dataset
 	 * 
 	 */
     public abstract Vector<JSONObject> ReadFrom(String citta, String firstday, String lastday) throws CityException,DatasetException;
     
     /**
      * Metodo che prende in ingresso un Vector caricato con le informazioni lette con ReadFrom e restituisce una Temperatura 
-     * @param ogg Vector<JSONObject> caricato con i dati letti
+     * @param ogg Vector di JSONObject caricato con i dati letti
      * @return Temperatura
      */
     public Temperatura datawriter (Vector<JSONObject> ogg)  {

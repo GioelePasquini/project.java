@@ -22,7 +22,7 @@ import meteo.meteoapplication.exceptions.DatasetException;
 public class HistoricalService extends Service {
 
 	/**
-	 * Override del metodo ReadFrom
+	 * Override del metodo ReadFrom della classe astratta Service
 	 * Carica un Vector con le informazioni relative alla temperatura lette dal dataset
 	 */
 	@Override
@@ -93,3 +93,7 @@ public class HistoricalService extends Service {
      }
 
 }
+	
+		
+
+

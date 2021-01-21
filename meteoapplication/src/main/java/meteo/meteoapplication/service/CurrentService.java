@@ -25,7 +25,7 @@ import meteo.meteoapplication.exceptions.CityException;
 public class CurrentService extends Service {
 
 	/**
-	 * Override del metodo ReadFrom
+	 * Override del metodo ReadFrom della classe astratta Service
 	 * Carica un Vector con le informazioni relative alla temperatura lette dall'API
 	 */
     @Override
