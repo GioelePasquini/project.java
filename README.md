@@ -15,7 +15,7 @@ Usufruendo dei dati ricavati dall'API Openweather, l'applicazione restituisce in
 4) Avviare l'applicazione come SpringBootApplication;
 5) Inserire una delle rotte su Postman.
 ## UML
-![UML](https://github.com/GioelePasquini/project.java/blob/main/IMG/UML%20base.png)
+![UML](https://github.com/GioelePasquini/project.java/blob/master/IMG/UML%20basejp.jpg)
 Questo diagramma rappresenta il funzionamento della nostra applicazione.
 L'utente può:
 1) Visualizzare le informazioni attuali sulla temperatura grazie all'API OpenWeather;
